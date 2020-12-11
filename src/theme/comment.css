@@ -1,0 +1,28 @@
+.topic{
+    font-size: 24px;
+}
+
+.description{
+    font-size: 16px;
+}
+
+.com h2{
+    line-height: 1.5;
+}
+
+#des{
+    line-height: 1.5;
+}
+
+.body{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.comm{
+    font-size: 20px;
+}
+
+/* h3{
+    font-size: 20px;
+} */
