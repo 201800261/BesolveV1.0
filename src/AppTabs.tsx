@@ -63,7 +63,7 @@ const AppTabs: React.FC = () => {
             <AddCommentPage/>
           </Route>
 
-          <Redirect exact path="/" to="/my/entries"/>
+          <Redirect exact path="/" to="/besolve"/>
           </IonRouterOutlet>
             <IonTabBar slot = "bottom">
               <IonTabButton tab="home" href="/my/entries">
