@@ -41,6 +41,10 @@ return (
             <AppTabs/>
           </Route>
 
+          <Route>
+              <BeginPage/>
+          </Route>
+
           <Redirect exact path="/" to="/my/entries"/>
             <Route>
                 <NotFoundPage/>
