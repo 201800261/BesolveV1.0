@@ -5,7 +5,7 @@
   "scripts": {
     "start": "ionic serve",
     "start:android": "ionic capacitor run android --livereload --external",
-    "build": "ionic build"
+    "build": "CI='' ionic build"
   },
   "dependencies": {
     "@capacitor/android": "2.4.2",
