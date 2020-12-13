@@ -27,7 +27,9 @@ const toggleDarkModeHandler = () => {
 
 
 const SettingsPage: React.FC = () => {
-  const username = useContext(UserContext);
+  const {username} = useContext(UserContext);
+  const {email} = useContext(UserContext);
+  const {department} = useContext(UserContext);
   return (
     <IonPage>
       <IonHeader>
@@ -36,7 +38,7 @@ const SettingsPage: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <img src={setting} alt="setting.svg" />
+        <img src={setting} alt="setting.svg" height="35%" width="100%"/>
         <IonList>
           <br/><div className="inf">User Information</div><br/>
             <IonItem>
@@ -45,12 +47,12 @@ const SettingsPage: React.FC = () => {
             </IonItem>
 
           <IonItem>
-            <IonLabel><b>E-mail:</b></IonLabel>
+              <IonLabel><b>E-mail: </b>{email}</IonLabel>
             {/* <IonInput type="text"></IonInput> */}
           </IonItem>
 
           <IonItem>
-            <IonLabel><b>University:</b></IonLabel>
+            <IonLabel><b>Department: </b>{department}</IonLabel>
             {/* <IonInput type="text"></IonInput> */}
           </IonItem>
 

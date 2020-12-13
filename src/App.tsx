@@ -10,6 +10,7 @@ import {AuthContext, useAuthInit} from './auth';
 import NotFoundPage from './pages/NotFoundPage';
 import RegisterPage from './pages/RegisterPage';
 import BeginPage from './pages/BeginPage'
+import SlidesPage from './pages/SlidesPage';
 
 
 
@@ -29,6 +30,10 @@ return (
               <BeginPage/>
           </Route>
 
+          <Route exact path="/slides">
+              <SlidesPage/>
+          </Route>
+                    
           <Route exact path="/login">
               <LoginPage/>
           </Route>

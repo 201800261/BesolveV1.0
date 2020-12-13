@@ -17,16 +17,15 @@ import AddCommentPage from './pages/AddCommentPage';
 import { useAuth, UserContext } from './auth';
 import CommentPage from './pages/CommentPage';
 import { firestore } from './firebase';
-import { tousername, userdetails } from './model';
+import { toEntry, tousername, userdetails } from './model';
 
 
 const AppTabs: React.FC = () => {
   const {loggedIn, userId} = useAuth();
-
-  const [username, setUsername] = useState<userdetails>();
+  const [userdetails, setDetails] = useState<userdetails>();
   useEffect(() => {
     const entryRef = firestore.collection("users").doc(userId).get().then((doc)=>{
-      setUsername(tousername(doc));
+      setDetails(toEntry(doc));
     })
     }, [userId]);
   
@@ -35,7 +34,7 @@ const AppTabs: React.FC = () => {
   }
   
   return (
-    <UserContext.Provider value={`${username?.username}`}>
+    <UserContext.Provider value={{username: `${userdetails?.username}`, email: `${userdetails?.email}`, department: `${userdetails?.department}`}}>
        <IonTabs> 
         <IonRouterOutlet>
 
@@ -65,6 +64,7 @@ const AppTabs: React.FC = () => {
 
           <Redirect exact path="/" to="/besolve"/>
           </IonRouterOutlet>
+          
             <IonTabBar slot = "bottom">
               <IonTabButton tab="home" href="/my/entries">
                 <IonIcon icon={homeIcon} />

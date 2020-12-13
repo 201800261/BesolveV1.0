@@ -11,7 +11,7 @@ interface AuthInit {
     auth?: Auth;
 }
 
-export const UserContext = React.createContext("");
+export const UserContext = React.createContext({username:"", email:"", department:""});
 
 export const AuthContext = React.createContext<Auth>({ loggedIn: false});
 

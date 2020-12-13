@@ -24,7 +24,6 @@ import { commentlist, postlist, topostlist } from "../model";
 import { useAuth, UserContext } from "../auth";
 import { pencil, send, trash } from "ionicons/icons";
 import "../theme/comment.css";
-import { stringify } from "querystring";
 
 interface RouteParams {
   id: string;
@@ -41,7 +40,7 @@ const CommentPage: React.FC = () => {
   const [comment, setComment] = useState("");
   const history = useHistory();
   const { userId } = useAuth();
-  const username = useContext(UserContext);
+  const {username} = useContext(UserContext);
   const [title, setTitle] = useState(entry?.title);
   const [description, setDescription] = useState(entry?.description);
   const [edit, setEdit] =  useState(false);
@@ -86,9 +85,12 @@ const CommentPage: React.FC = () => {
     }
     function checkCommenter(userComment, commentId){
       if(userComment === username)
-      return (<IonButton fill="clear" slot="end" color="danger" onClick={()=>handleDelete(commentId)}>
+      return (
+      <div className="ion-text-end">
+      <IonButton fill="clear" slot="end" color="danger" onClick={()=>handleDelete(commentId)}>
       <IonIcon icon={trash} />
-    </IonButton>)
+      </IonButton>
+      </div>)
     }
 /*   useEffect(() => {
   const entryRef = firestore.collection("departments").doc(id).collection('posts').doc(postid).collection('comments');
@@ -116,7 +118,7 @@ const CommentPage: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton />
+            <IonBackButton/>
           </IonButtons>
           <IonTitle> BeSolve</IonTitle>
         </IonToolbar>
@@ -163,29 +165,27 @@ const CommentPage: React.FC = () => {
               </IonCol>
             </IonRow>
         </IonCard>
-      {/* <h3>Topic: {entry?.title}</h3>
-      <h4>{entry?.description}</h4>
-      <br/> */}
       <div className="body">
       <IonText className="comm"><b>Comments</b></IonText>
       { comments.map((entry) =>    
           <div className="com" key={entry.id}>
           <IonCardContent>
             <h3><b>{entry.username}</b></h3>
-            <h2>{entry.comment} </h2> 
-            <div className="ion-text-end">
-             {checkCommenter(entry.username,entry.id)}
-            </div>
-              ...............................................................
+            <h2>{entry.comment} </h2>
+             {checkCommenter(entry.username,entry.id)}             
           </IonCardContent>              
           </div>   
          )}
         
          <IonToolbar>
-          <IonTextarea value={comment} onIonChange={(e)=>{setComment(e.detail.value)}} placeholder="Add Comment"/>
+          <IonRow>
+              <IonTextarea value={comment} onIonChange={(e)=>{setComment(e.detail.value)}} placeholder="Add Comment"/>
+              <div className="ion-text-end">
               <IonButtons slot="end" onClick={handleComment}>
                 <IonIcon slot="icon-only" icon={send} />
-            </IonButtons>
+              </IonButtons>
+              </div>
+          </IonRow>
         </IonToolbar>
         </div>
       </IonContent>

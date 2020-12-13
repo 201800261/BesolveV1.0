@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
       </IonHeader>
 
       <IonContent className="ion-padding">
-      <img src={home} alt="home.svg"/>
+      <img src={home} alt="home.svg" height="35%" width="100%"/>
         { entries.map((entry) =>
               <IonItem
               button

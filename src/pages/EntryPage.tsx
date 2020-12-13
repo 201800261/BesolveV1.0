@@ -26,6 +26,8 @@ import { firestore } from "../firebase";
 import { departmentlist, Entry, postlist, todepartmentlist, toEntry, topostlist } from "../model";
 import { useAuth } from "../auth";
 import { add } from "ionicons/icons";
+import empty from '../Images/empty.svg';
+
 
 
 interface RouteParams {
@@ -41,7 +43,7 @@ const EntryPage: React.FC = () => {
   const { id, departmentName } = match.params;
   const [entry, setEntry] = useState<postlist[]>([]);
   const { userId } = useAuth();
-
+  const [showNoData, setShow] = useState(false);
 
   useEffect(() => {
   const entryRef = firestore.collection("departments").doc(id).collection('posts');
@@ -49,22 +51,38 @@ const EntryPage: React.FC = () => {
     });
   }, [userId, id]);
 
-  
+  useEffect(() => {
+    const entryRef = firestore.collection("departments").doc(id).collection('posts');
+      entryRef.onSnapshot((snapshot) => {
+        if (snapshot.size) {
+          setShow(false);
+        } else {
+          setShow(true);
+        }
+      });
+    }, [userId, id]);
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton />
+            <IonBackButton  color=""/>
           </IonButtons>
           <IonTitle>{departmentName} </IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent scrollEvents={true} className="ion-padding"> <br></br>
-      { entry.map((entry) =>
-               
-          
+      {showNoData && (
+            <div className="ion-text-center centerImg">
+              <img src={empty} alt="empty.svg" />
+              <br />
+              <br />
+              <p>You have caught up all the posts already!</p>
+            </div>
+          )}
+        
+        { entry.map((entry) =>          
           <IonCard color="tertiary" key={entry.id}>
             <IonCardHeader> 
               <IonCardSubtitle><b>{entry.username}</b></IonCardSubtitle>

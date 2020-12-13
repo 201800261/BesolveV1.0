@@ -23,6 +23,8 @@ export function todepartmentlist(doc){
 export interface userdetails{
     id: string;
     username: string;
+    email: string;
+    department: string;
   }
 
 export function tousername(doc){

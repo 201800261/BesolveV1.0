@@ -51,7 +51,7 @@ const AddEntryPage: React.FC = () => {
   const [date, setDate] = useState('');
   const history = useHistory();
   const fileInputRef = useRef<HTMLInputElement>();
-  const username = useContext(UserContext);
+  const {username} = useContext(UserContext);
   useEffect(() => () => {
     if (pictureUrl.startsWith('blob:')){
       URL.revokeObjectURL(pictureUrl);

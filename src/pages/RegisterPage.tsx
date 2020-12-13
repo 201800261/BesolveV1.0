@@ -11,7 +11,10 @@ import {
   IonInput,
   IonText,
   IonLoading,
-  IonToast
+  IonToast,
+  IonSearchbar,
+  IonSelect,
+  IonSelectOption
 } from '@ionic/react';
 import React, { useState } from 'react';
 import logo from '../Images/logo_transparent.png';
@@ -24,6 +27,7 @@ const RegisterPage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [department, setDepartment] = useState('');
   const [status, setStatus] = useState({loading: false, error: false, errormessage: "" });
   const [showToast, setShowToast] = useState(false);
   const { userId } = useAuth();
@@ -55,9 +59,11 @@ const RegisterPage: React.FC = () => {
   const { loggedIn } = useAuth();
   if (loggedIn) {
     firestore.collection('users').doc(userId).set({
-      username
+      username,
+      email,
+      department,
     });
-    return <Redirect to="/my/entries" />;
+    return <Redirect to="/slides" />;
   }
   return (
     <IonPage>
@@ -65,7 +71,7 @@ const RegisterPage: React.FC = () => {
       <img src={logo} alt="logo_transparent.png"/>
           <h1><b>Register</b></h1>
         <IonList>
-        <IonItem>
+          <IonItem>
             <IonLabel position="stacked">Username</IonLabel>
             <IonInput type="text" value={username} onIonChange={(event) => setUsername(event.detail.value)} />
           </IonItem>
@@ -80,6 +86,20 @@ const RegisterPage: React.FC = () => {
             <IonInput type="password" value={password} onIonChange={(event) => setPassword(event.detail.value)} />
           </IonItem>
         </IonList>
+
+        <IonItem>
+            <IonLabel position="stacked">Deparment</IonLabel>
+            <IonSelect placeholder="Choose your department" value={department} onIonChange={(event) => setDepartment(event.detail.value)}>
+              <IonSelectOption value="Information Techonology">Information Techonology</IonSelectOption>
+              <IonSelectOption value="Education">Education</IonSelectOption>
+              <IonSelectOption value="Art & Humanitites">Art & Humanitites</IonSelectOption>
+              <IonSelectOption value="Business Administration">Business Administration</IonSelectOption>
+              <IonSelectOption value="Science">Science</IonSelectOption>
+              <IonSelectOption value="Nursing">Nursing</IonSelectOption>
+              <IonSelectOption value="Religious Studies">Religious Studies</IonSelectOption>
+
+            </IonSelect>
+        </IonItem>
 
         <IonToast
           isOpen={showToast}
