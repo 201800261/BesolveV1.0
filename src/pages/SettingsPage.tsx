@@ -43,26 +43,26 @@ const SettingsPage: React.FC = () => {
           <br/><div className="inf">User Information</div><br/>
             <IonItem>
               <IonLabel><b>Username:</b> {username}</IonLabel>
-              {/* <IonInput type="text"></IonInput> */}
             </IonItem>
 
           <IonItem>
               <IonLabel><b>E-mail: </b>{email}</IonLabel>
-            {/* <IonInput type="text"></IonInput> */}
           </IonItem>
 
           <IonItem>
             <IonLabel><b>Department: </b>{department}</IonLabel>
-            {/* <IonInput type="text"></IonInput> */}
           </IonItem>
 
           <IonItem>
             <IonIcon slot="start" icon={moon} />
             <IonLabel>Dark Mode</IonLabel>
             <IonToggle slot="end" onIonChange={toggleDarkModeHandler} />
-          </IonItem><br/>
+          </IonItem><br/>     
 
           </IonList> 
+        <IonButton fill="clear" expand="block"
+        routerLink="/my/policy">Privacy</IonButton>
+
         <IonButton color="dark" expand="block"
         onClick={()=> auth.signOut()} routerLink="/besolve">Logout</IonButton>
       </IonContent>

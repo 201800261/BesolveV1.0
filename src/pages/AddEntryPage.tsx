@@ -123,7 +123,7 @@ const AddEntryPage: React.FC = () => {
             value={date} onIonChange={(event) => setDate(event.detail.value)}/>
         </IonItem>
         
-        <IonItem>
+        {/* <IonItem>
           <IonLabel position="stacked">Picture</IonLabel><br/>
           <input type="file" accept="image/*" hidden ref={fileInputRef} 
             onChange={handleFileChange}
@@ -131,7 +131,7 @@ const AddEntryPage: React.FC = () => {
           <img src={pictureUrl} alt="" style={{ cursor: 'pointer'}} 
             onClick={handlePictureClick}
             />
-        </IonItem>
+        </IonItem> */}
 
         <IonButton expand="block" onClick={handleSave} >Post</IonButton>
       </IonContent>

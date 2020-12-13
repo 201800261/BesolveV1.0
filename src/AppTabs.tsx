@@ -18,6 +18,7 @@ import { useAuth, UserContext } from './auth';
 import CommentPage from './pages/CommentPage';
 import { firestore } from './firebase';
 import { toEntry, tousername, userdetails } from './model';
+import PolicyPage from './pages/PolicyPage';
 
 
 const AppTabs: React.FC = () => {
@@ -60,6 +61,11 @@ const AppTabs: React.FC = () => {
 
           <Route exact path="/my/entries/comment">
             <AddCommentPage/>
+          </Route>
+
+          
+          <Route exact path="/my/policy">
+              <PolicyPage/>
           </Route>
 
           <Redirect exact path="/" to="/besolve"/>

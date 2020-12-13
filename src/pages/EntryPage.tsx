@@ -6,24 +6,19 @@ import {
   IonPage,
   IonButtons,
   IonBackButton,
-  IonItem,
   IonCard,
   IonButton,
   IonCardContent,
   IonCardHeader,
-  IonInput,
   IonFab,
   IonFabButton,
   IonIcon,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonRow,
-  IonCol,
+  IonCardSubtitle
 } from "@ionic/react";
 import React, { useEffect, useState } from "react";
 import { useRouteMatch } from "react-router";
 import { firestore } from "../firebase";
-import { departmentlist, Entry, postlist, todepartmentlist, toEntry, topostlist } from "../model";
+import { postlist, topostlist } from "../model";
 import { useAuth } from "../auth";
 import { add } from "ionicons/icons";
 import empty from '../Images/empty.svg';
@@ -47,7 +42,7 @@ const EntryPage: React.FC = () => {
 
   useEffect(() => {
   const entryRef = firestore.collection("departments").doc(id).collection('posts');
-    entryRef.onSnapshot(({docs}) => {setEntry(docs.map(topostlist));
+    entryRef.orderBy("date","desc").onSnapshot(({docs}) => {setEntry(docs.map(topostlist));
     });
   }, [userId, id]);
 
@@ -67,7 +62,7 @@ const EntryPage: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton  color=""/>
+            <IonBackButton/>
           </IonButtons>
           <IonTitle>{departmentName} </IonTitle>
         </IonToolbar>
@@ -75,10 +70,10 @@ const EntryPage: React.FC = () => {
       <IonContent scrollEvents={true} className="ion-padding"> <br></br>
       {showNoData && (
             <div className="ion-text-center centerImg">
-              <img src={empty} alt="empty.svg" />
+              <img src={empty} alt="empty.svg" height="50%" width="70%" />
               <br />
               <br />
-              <p>You have caught up all the posts already!</p>
+              <p>There is not post in this department yet!</p>
             </div>
           )}
         

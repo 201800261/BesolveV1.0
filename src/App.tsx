@@ -11,6 +11,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import RegisterPage from './pages/RegisterPage';
 import BeginPage from './pages/BeginPage'
 import SlidesPage from './pages/SlidesPage';
+import PolicyPage from './pages/PolicyPage';
 
 
 
