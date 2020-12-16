@@ -60,7 +60,7 @@ const SettingsPage: React.FC = () => {
           </IonItem><br/>     
 
           </IonList> 
-        <IonButton fill="clear" expand="block"
+        <IonButton fill="clear" expand="full" 
         routerLink="/my/policy">Privacy</IonButton>
 
         <IonButton color="dark" expand="block"

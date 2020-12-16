@@ -73,7 +73,7 @@ const EntryPage: React.FC = () => {
               <img src={empty} alt="empty.svg" height="50%" width="70%" />
               <br />
               <br />
-              <p>There is not post in this department yet!</p>
+              <p>There are no posts in this department yet!</p>
             </div>
           )}
         

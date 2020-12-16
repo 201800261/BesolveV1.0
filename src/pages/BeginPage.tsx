@@ -22,7 +22,7 @@ const BeginPage: React.FC = () => {
             </div>
             <IonButton color="dark" expand="block" routerLink="/login"> Login </IonButton>
 
-            <IonButton color="dark" expand="block" routerLink="/register">
+            <IonButton color="dark" expand="block" routerLink="/slides">
               Sign Up </IonButton>
 
         <IonLoading isOpen={status.loading}></IonLoading>

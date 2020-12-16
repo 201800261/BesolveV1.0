@@ -63,7 +63,7 @@ const RegisterPage: React.FC = () => {
       email,
       department,
     });
-    return <Redirect to="/slides" />;
+    return <Redirect to="/my/entries" />;
   }
   return (
     <IonPage>

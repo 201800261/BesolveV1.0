@@ -113,15 +113,15 @@ const AddEntryPage: React.FC = () => {
 
         <IonItem>
           <IonLabel position="stacked">Description</IonLabel>
-          <IonInput type="text"
+          <IonTextarea
             value={description} onIonChange={(event) => setDescription(event.detail.value)}/>
         </IonItem>
 
-        <IonItem>
+        {/* <IonItem>
           <IonLabel position="stacked">Date</IonLabel>
           <IonDatetime
             value={date} onIonChange={(event) => setDate(event.detail.value)}/>
-        </IonItem>
+        </IonItem> */}
         
         {/* <IonItem>
           <IonLabel position="stacked">Picture</IonLabel><br/>

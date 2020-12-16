@@ -55,7 +55,7 @@ export const SlidesPage: React.FC = () => (
             <IonCard class="card">
             <img src={start} alt="start.svg" />
             <h2>Ready to Enter?</h2>
-            <IonButton color="" fill="clear" routerLink="/my/entries">Continue<IonIcon slot="end" icon={arrowForward}></IonIcon></IonButton>
+            <IonButton color="" fill="clear" routerLink="/register">Continue<IonIcon slot="end" icon={arrowForward}></IonIcon></IonButton>
             </IonCard>
         </IonSlide>
 
