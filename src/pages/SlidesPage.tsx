@@ -6,6 +6,7 @@ import welcome from '../Images/welcome.svg';
 import intro from '../Images/intro.svg';
 import start from '../Images/start.svg';
 import privacy from '../Images/privacy.svg';
+import thai from '../Images/thai.svg';
 
 // Optional parameters to pass to the swiper instance.
 // See http://idangero.us/swiper/api/ for valid options.
@@ -53,7 +54,7 @@ export const SlidesPage: React.FC = () => (
 
         <IonSlide>
             <IonCard class="card">
-            <img src={start} alt="start.svg" />
+            <img src={thai} alt="thai.svg" />
             <h2>Ready to Enter?</h2>
             <IonButton color="" fill="clear" routerLink="/register">Continue<IonIcon slot="end" icon={arrowForward}></IonIcon></IonButton>
             </IonCard>

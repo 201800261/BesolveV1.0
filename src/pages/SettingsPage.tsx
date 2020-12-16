@@ -53,15 +53,19 @@ const SettingsPage: React.FC = () => {
             <IonLabel><b>Department: </b>{department}</IonLabel>
           </IonItem>
 
+          </IonList> 
+          <IonItem button  routerLink="/my/policy"><b>Privacy</b>
+          </IonItem>
+          
           <IonItem>
             <IonIcon slot="start" icon={moon} />
             <IonLabel>Dark Mode</IonLabel>
             <IonToggle slot="end" onIonChange={toggleDarkModeHandler} />
           </IonItem><br/>     
 
-          </IonList> 
-        <IonButton fill="clear" expand="full" 
-        routerLink="/my/policy">Privacy</IonButton>
+        
+        {/* <IonButton fill="clear" expand="full" 
+        routerLink="/my/policy">Privacy</IonButton> */}
 
         <IonButton color="dark" expand="block"
         onClick={()=> auth.signOut()} routerLink="/besolve">Logout</IonButton>

@@ -51,8 +51,6 @@ const HomePage: React.FC = () => {
                 {entry.name}
               </IonItem>
             )}
-           
-          
       </IonContent>
     </IonPage>
   );
